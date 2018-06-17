@@ -1,6 +1,6 @@
 def initialize_soco():
     import soco
-    
+    import os
 
 def initialize_speaker(device):
     device.unjoin()
@@ -18,11 +18,11 @@ def select_device(nr):
     if nr == '1':
         name = 'Kitchen'
         device = check_device_availability(name)
-        device.volume = 10
+        device.volume = 20
     elif nr == '2':
         name = 'Family Room'
         device = check_device_availability(name)
-        device.volume = 10
+        device.volume = 20
 
     else:
         device = 'None'
@@ -98,8 +98,10 @@ def group_volume(device, volumechange):
         print(player.player_name + ' volume: ' + str(player.volume))
 
 def group_actions(nr, coordinator):
-    # print(coordinator)
-    if nr == '11':
+    # print(coordinator)        
+    if nr == '11':         
+        coordinator  = select_device('2')
+        select_device('1')
         print('Play studio brussel')
         coordinator.play_uri('http://icecast.vrtcdn.be/stubru-high.mp3')
     elif nr == 'p':
@@ -111,12 +113,37 @@ def group_actions(nr, coordinator):
     elif nr =='x':
         group_volume(coordinator, -10)
     
+    return coordinator
+
+def getch():
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(sys.stdin.fileno())
+        ch = sys.stdin.read(1)
+ 
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    return ch
+
+import sys, termios, tty, os, time
+
+# code for continuously checking of keyboard
+# while True:
+#     char = getch()
+ 
+#     if (char == "p"):
+#         print("Stop!")
+#         exit(0) 
+button_delay = 0.2
 # start the code
 initialize_soco()
 coordinator = []
 
 
 while True:
+#    import sys
+#    if sys.platform=='darwin':
     nr = input('Action #? ')
     
     if type(nr)==int:
@@ -124,4 +151,4 @@ while True:
 
     selected_device, coordinator = device_actions(nr, coordinator)
 
-    group_actions(nr, coordinator)
+    coordinator = group_actions(nr, coordinator)
