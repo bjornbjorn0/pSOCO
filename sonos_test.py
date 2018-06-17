@@ -8,29 +8,33 @@ def initialize_speaker(device):
 def check_device_availability(name):
     from soco.discovery import by_name
     print('Attempt to find device '+name)
-    device = by_name(name)
-    print(device)
+    device = by_name(name)    
     return device
 
 # select sonos device. Return 'None' if device is not available    
 def select_device(nr):
     # add here all numbers that refer to a sonos device
+    print('Looking for command '+nr)
     if nr == '1':
         name = 'Kitchen'
         device = check_device_availability(name)
+        device.volume = 10
     elif nr == '2':
         name = 'Family Room'
         device = check_device_availability(name)
+        device.volume = 10
 
     else:
         device = 'None'
+
+    print(device)
 
     if device != 'None':
          print('Device found: ' + device.player_name + ' with coordinator: ' + device.group.coordinator.player_name)
         
     else:        
-        print(device)
-        print('No device found')
+        print('Device selected by last key?: ' + device)
+        print('Key does not select a device.')
     return device
 
 def organize_device(selected_device, coordinator):
@@ -57,12 +61,19 @@ def organize_device(selected_device, coordinator):
     return selected_device, coordinator, isNew
 
 def change_settings(device, subset):
-    mykey = input('key:')
+    print('Device is already connected to group, please select action for this device.')
+    
 
-    if mykey=='w':
-        device.volume=+10
-    elif mykey =='x':
-        device.volume=-10
+    while 1:
+        mykey = input('Volume up/down [w/x], cancel [enter], unjoin [u]:')
+        if mykey=='w':
+            device.volume=device.volume+10
+        elif mykey =='x':
+            device.volume=device.volume-10
+        elif mykey =='u':
+            device.unjoin()
+        else:
+            break
 
 # is speaker active?
 def device_actions(nr, coordinator):
@@ -93,6 +104,8 @@ def group_actions(nr, coordinator):
         coordinator.play_uri('http://icecast.vrtcdn.be/stubru-high.mp3')
     elif nr == 'p':
         coordinator.pause()
+    elif nr == ' ':
+        coordinator.play()
     elif nr=='w':
         group_volume(coordinator, +10)
     elif nr =='x':
@@ -105,6 +118,10 @@ coordinator = []
 
 while True:
     nr = input('Action #? ')
+    
+    if type(nr)==int:
+        nr = str(nr)
+
     selected_device, coordinator = device_actions(nr, coordinator)
 
     group_actions(nr, coordinator)
