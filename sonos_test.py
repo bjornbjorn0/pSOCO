@@ -99,7 +99,7 @@ def group_volume(device, volumechange):
 
 def group_actions(nr, coordinator):
     # print(coordinator)        
-    if nr == '11':         
+    if nr == 'a':         
         coordinator  = select_device('2')
         select_device('1')
         print('Play studio brussel')
