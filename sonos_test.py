@@ -159,11 +159,11 @@ while True:
                 nr = 'p'
                 print('Pause playing') 
                 break
-            if key == keys.AGE_UP:
+            if key == keys.N2:
                 nr = 'w'
                 print('Increase volume')
                 break
-            if key == keys.AGE_DOWN:
+            if key == keys.N3:
                 nr = 'x'
                 print('Decrease volumn')
                 break
