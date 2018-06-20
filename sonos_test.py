@@ -104,6 +104,11 @@ def group_actions(nr, coordinator):
         select_device('1')
         print('Play studio brussel')
         coordinator.play_uri('http://icecast.vrtcdn.be/stubru-high.mp3')
+    elif nr == 'b'
+        coordinator = select_device('2')
+        select_device('1')
+        print('Play 3FM alternative')
+        coordinator.play_uri('http://icecast.omroep.nl/3fm-bb-mp3')        
     elif nr == 'p':
         coordinator.pause()
     elif nr == ' ':
@@ -155,6 +160,10 @@ while True:
                 nr = 'a'
                 print('Play VRT Studio brussel in the kitchen')
                 break         
+            if key == keys.N2:
+                nr = 'b'
+                print('Play VRT Studio brussel in the kitchen')
+                break             
             if key == keys.CTRL_AT: 
                 nr = 'p'
                 print('Pause playing') 
