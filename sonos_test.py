@@ -149,9 +149,9 @@ while True:
     else:
         while 1:
             key = getkey()
-                if key == keys.a:
-                    nr = 'a'
-                    break                
+            if key == keys.a:
+                nr = 'a'
+                break                
     
     if type(nr)==int:
         nr = str(nr)
