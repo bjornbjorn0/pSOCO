@@ -1,6 +1,7 @@
 def initialize_soco():
     import soco
     import os
+    import pygame
 
 def initialize_speaker(device):
     device.unjoin()
@@ -142,9 +143,14 @@ coordinator = []
 
 
 while True:
-#    import sys
-#    if sys.platform=='darwin':
-    nr = input('Action #? ')
+    import sys
+    if sys.platform=='darwin':
+        nr = input('Action #? ')
+    else:
+        while 1:
+            key=pygame.key.get_pressed()
+            if key[pygame.K_UP]:
+                break       
     
     if type(nr)==int:
         nr = str(nr)
