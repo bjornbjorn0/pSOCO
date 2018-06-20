@@ -150,7 +150,7 @@ while True:
         while 1:
             key = getkey()
             print(key)
-            if key == keys.a:
+            if key == keys.UP:
                 nr = 'a'
                 print('A is ingedrukt')
                 break                
