@@ -109,9 +109,9 @@ def group_actions(nr, coordinator):
     elif nr == ' ':
         coordinator.play()
     elif nr=='w':
-        group_volume(coordinator, +10)
+        group_volume(coordinator, +5)
     elif nr =='x':
-        group_volume(coordinator, -10)
+        group_volume(coordinator, -5)
     
     return coordinator
 
