@@ -150,7 +150,8 @@ while True:
     else:
         while 1:
             key=pygame.key.get_pressed()
-            if key[pygame.K_UP]:
+            if key[pygame.K_a]:
+                nr = 'a'
                 break       
     
     if type(nr)==int:
