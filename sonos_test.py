@@ -149,6 +149,7 @@ while True:
     else:
         while 1:
             key = getkey()
+            print(key)
             if key == keys.a:
                 nr = 'a'
                 print('A is ingedrukt')
