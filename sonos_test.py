@@ -167,7 +167,10 @@ while True:
                 nr = 'x'
                 print('Decrease volumn')
                 break
-    
+
+            buffer += key
+            print(buffer)
+            
     print('uit de loop')
     if type(nr)==int:
         nr = str(nr)
