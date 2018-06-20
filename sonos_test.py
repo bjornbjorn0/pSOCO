@@ -142,7 +142,7 @@ coordinator = []
 
 import pygame
 import sys
-
+pygame.init()
 
 while True:
     if sys.platform=='darwin':
