@@ -1,7 +1,6 @@
 def initialize_soco():
     import soco
     import os
-    import pygame
 
 def initialize_speaker(device):
     device.unjoin()
@@ -141,9 +140,11 @@ button_delay = 0.2
 initialize_soco()
 coordinator = []
 
+import pygame
+import sys
+
 
 while True:
-    import sys
     if sys.platform=='darwin':
         nr = input('Action #? ')
     else:
