@@ -151,8 +151,10 @@ while True:
             key = getkey()
             if key == keys.a:
                 nr = 'a'
+                print('A is ingedrukt')
                 break                
     
+    print('uit de loop')
     if type(nr)==int:
         nr = str(nr)
 
