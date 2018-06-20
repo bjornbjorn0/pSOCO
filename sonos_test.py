@@ -168,7 +168,7 @@ while True:
                 print('Decrease volumn')
                 break
 
-            print(key)
+            print(keys.name(key))
             
 
     print('uit de loop')
