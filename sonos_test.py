@@ -140,20 +140,18 @@ button_delay = 0.2
 initialize_soco()
 coordinator = []
 
-import pygame
 import sys
-pygame.init()
+from getkey import getkey, keys
 
 while True:
     if sys.platform=='darwin':
         nr = input('Action #? ')
     else:
         while 1:
-            key=pygame.key.get_pressed()
-            if key[pygame.K_a]:
-                print('Key pressed: A')
-                nr = 'a'
-                break       
+            key = getkey()
+                if key == keys.a:
+                    nr = 'a'
+                    break                
     
     if type(nr)==int:
         nr = str(nr)
