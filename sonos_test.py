@@ -151,19 +151,19 @@ while True:
         while 1:
             key = getkey()
             print(key)
-            if key == keys.RIGHT:
+            if key == keys.N1:
                 nr = 'a'
                 print('Play VRT Studio brussel in the kitchen')
                 break         
-            if key == keys.LEFT: 
+            if key == keys.CTRL_AT: 
                 nr = 'p'
                 print('Pause playing') 
                 break
-            if key == keys.UP:
+            if key == keys.AGE_UP:
                 nr = 'w'
                 print('Increase volume')
                 break
-            if key == keys.DOWN:
+            if key == keys.AGE_DOWN:
                 nr = 'x'
                 print('Decrease volumn')
                 break
