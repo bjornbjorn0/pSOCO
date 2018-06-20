@@ -104,7 +104,7 @@ def group_actions(nr, coordinator):
         select_device('1')
         print('Play studio brussel')
         coordinator.play_uri('http://icecast.vrtcdn.be/stubru-high.mp3')
-    elif nr == 'b'
+    elif nr == 'b':
         coordinator = select_device('2')
         select_device('1')
         print('Play 3FM alternative')
