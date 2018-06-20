@@ -151,6 +151,7 @@ while True:
         while 1:
             key=pygame.key.get_pressed()
             if key[pygame.K_a]:
+                print('Key pressed: A')
                 nr = 'a'
                 break       
     
