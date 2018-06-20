@@ -143,6 +143,7 @@ coordinator = []
 import sys
 from getkey import getkey, keys
 
+print('You can start using it!')
 while True:
     if sys.platform=='darwin':
         nr = input('Action #? ')
@@ -150,10 +151,22 @@ while True:
         while 1:
             key = getkey()
             print(key)
-            if key == keys.UP:
+            if key == keys.RIGHT:
                 nr = 'a'
-                print('A is ingedrukt')
-                break                
+                print('Play VRT Studio brussel in the kitchen')
+                break         
+            if key == keys.LEFT: 
+                nr = 'p'
+                print('Pause playing') 
+                break
+            if key == key.UP:
+                nr = 'w'
+                print('Increase volume')
+                break
+            if key == key.DOWN:
+                nr = 'x'
+                print('Decrease volumn')
+                break
     
     print('uit de loop')
     if type(nr)==int:
